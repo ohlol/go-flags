@@ -95,8 +95,8 @@ func (p *Parser) writeHelpOption(writer *bufio.Writer, option *Option, info alig
 		line.WriteString(option.LongName)
 	}
 
-	if !option.isBool() {
-		line.WriteString("=")
+	if !option.isBool() && option.Field.Name != "ShowHelp" {
+		line.WriteString(" ")
 
 		if len(option.ValueName) > 0 {
 			line.WriteString(option.ValueName)
